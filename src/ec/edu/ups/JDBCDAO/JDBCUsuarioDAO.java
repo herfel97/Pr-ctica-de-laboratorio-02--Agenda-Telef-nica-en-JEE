@@ -17,7 +17,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
  @Override public void create(Usuario entity) {
 	 jdbc.update("INSERT Usuario VALUES ("+ ) 
 	}
-
+//metodos
 	public Usuario read(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
