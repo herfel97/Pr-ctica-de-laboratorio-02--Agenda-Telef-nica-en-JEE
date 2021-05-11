@@ -1,6 +1,8 @@
 package ec.edu.ups.daos;
 
-public class UsuarioDAO {
+import ec.edu.ups.clases.Usuario;
+
+public interface UsuarioDAO extends GenericDAO<Usuario, Integer> {
 
 	
 	

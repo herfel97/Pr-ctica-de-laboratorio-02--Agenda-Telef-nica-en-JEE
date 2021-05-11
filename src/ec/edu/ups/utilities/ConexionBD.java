@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class ConexionBD {
 
-	public Connection connect() {
+	public static Connection connect() {
 		try {
 			Class.forName("org.postgresql.Driver");
 			
@@ -19,7 +19,7 @@ public class ConexionBD {
 		
 		String url = "jdbc:postgresql://localhost/jee";
 		String user = "postgres";
-		String password = "hm123.";
+		String password = "802258";
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, password);

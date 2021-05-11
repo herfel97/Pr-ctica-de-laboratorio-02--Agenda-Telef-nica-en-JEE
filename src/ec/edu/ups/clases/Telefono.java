@@ -1,6 +1,8 @@
 package ec.edu.ups.clases;
 
-public class Telefono {
+import java.io.Serializable;
+
+public class Telefono implements Serializable {
 	
 	private int codigo;
 	private String numero;
@@ -42,5 +44,12 @@ public class Telefono {
 	public void setOperadora(String operadora) {
 		this.operadora = operadora;
 	}
+
+	@Override
+	public String toString() {
+		return "Telefono [codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora
+				+ "]";
+	}
+	
 
 }
