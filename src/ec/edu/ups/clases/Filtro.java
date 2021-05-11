@@ -21,7 +21,9 @@ public class Filtro implements Filter {
     /**
      * Default constructor. 
      */
-    public Filtro() {
+    public Filtro()   {
+    	//PREBA
+    	
         // TODO Auto-generated constructor stub
     }
 
