@@ -1,8 +1,9 @@
 package ec.edu.ups.clases;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Usuario {
+public class Usuario implements Serializable {
 	
 	private String cedula;
 	private String nombre;
@@ -53,6 +54,12 @@ public class Usuario {
 
 	public void setListaTelefonos(List<Telefono> listaTelefonos) {
 		this.listaTelefonos = listaTelefonos;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", contrasenia="
+				+ contrasenia + ", listaTelefonos=" + listaTelefonos + "]";
 	}	
 	
 }
