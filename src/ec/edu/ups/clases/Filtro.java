@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class Filtro
  */
-@WebFilter("/Filtro")
+@WebFilter({"/ServletMain","/Filtro"})
 public class Filtro implements Filter {
 
     /**
@@ -44,7 +44,7 @@ public class Filtro implements Filter {
 			chain.doFilter(request, response);
 		} else {
 			System.out.println("Inicie sesion primero");
-			((HttpServletResponse) response).sendRedirect("/HolaMundoServlets/login.html");
+			((HttpServletResponse) response).sendRedirect("/AgendaTelefonica/login.html");
 		}
 
 	}

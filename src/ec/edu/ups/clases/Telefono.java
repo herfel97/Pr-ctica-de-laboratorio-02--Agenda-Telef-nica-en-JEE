@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Telefono implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int codigo;
 	private String numero;
 	private String tipo;

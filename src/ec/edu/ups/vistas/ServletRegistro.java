@@ -2,8 +2,6 @@ package ec.edu.ups.vistas;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,13 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import ec.edu.ups.utilities.ConexionBD;
+import ec.edu.ups.JDBCDAO.JDBCUsuarioDAO;
+import ec.edu.ups.clases.Usuario;
 
-/**
- * Servlet implementation class ServletLogin
- */
 @WebServlet("/ServletRegistro")
 public class ServletRegistro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -46,7 +41,6 @@ public class ServletRegistro extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = (HttpSession) request.getSession();
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
@@ -55,20 +49,16 @@ public class ServletRegistro extends HttpServlet {
 		String ap = request.getParameter("apellido").toUpperCase();
 		String corr = request.getParameter("correo").toLowerCase();
 		String clav = request.getParameter("clave");
-
+		Usuario user = new Usuario();
+		user.setCedula(ci);
+		user.setNombre(nam);
+		user.setApellido(ap);
+		user.setCorreo(corr);
+		user.setContrasenia(clav);
+	
 		System.out.println("Registro: " + ci + " " + nam + " " + ap + " " + corr + "  " + clav);
-		ConexionBD conn = new ConexionBD();
-
-		try {
-			Statement st = conn.connect().createStatement();
-			String sent = "INSERT INTO Usuarios " + "(usu_cedula,usu_nombre, usu_apellido, usu_correo, usu_contrasena) "
-					+ "VALUES('" + ci + "','" + nam + "','" + ap + "','" + corr + "','" + clav + "')";
-			System.out.println(sent);
-					st.execute(sent);
-			
-		} catch (SQLException e) {
-			System.out.println("error al insertar");
-		}
+		JDBCUsuarioDAO f = new JDBCUsuarioDAO();
+		f.create(user);
 
 		out.println("<h9>!! Usuario creado exitosamente !! </h9>");
 		RequestDispatcher rd = request.getRequestDispatcher("registro.html");

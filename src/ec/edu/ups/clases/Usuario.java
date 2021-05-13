@@ -5,9 +5,14 @@ import java.util.List;
 
 public class Usuario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String cedula;
 	private String nombre;
 	private String apellido;
+	private String correo;
 	private String contrasenia;
 	private List<Telefono> listaTelefonos;
 	
@@ -54,6 +59,16 @@ public class Usuario implements Serializable {
 
 	public void setListaTelefonos(List<Telefono> listaTelefonos) {
 		this.listaTelefonos = listaTelefonos;
+	}
+	
+	
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	@Override

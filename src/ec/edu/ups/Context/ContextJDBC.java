@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ContextJDBC {
-	private static final String DRIVER ="com.mysql.jdbc.Driver";
-	private static final String URL ="jdbc:mysql://localhost:3306/agenda";
-	private static final String USER = "root";
-	private static final String PASS= "802258";
+	private static final String DRIVER ="org.postgresql.Driver";
+	private static final String URL ="jdbc:postgresql://localhost/jee";
+	private static final String USER = "postgres";
+	private static final String PASS= "hm123.";
 	
 	private static ContextJDBC jdbc = null;
 	private java.sql.Statement statement = null;
@@ -31,10 +31,8 @@ public class ContextJDBC {
 			
 		}
 	public ResultSet query(String sql) {
-		try {return this.statement.executeQuery(sql);	
+		try {return this.statement.executeQuery(sql);
 		} catch(SQLException e) { System.out.println(">>>>WARNING (JDBC:query): ---"+sql+"---"+ e);}
-			// TODO: handle exception
-
 		return null;
 		
 	}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <servlet>
+    <description></description>
+    <display-name>ServletRegistroContacto</display-name>
+    <servlet-name>ServletRegistroContacto</servlet-name>
+    <servlet-class>ec.edu.ups.vistas.ServletRegistro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRegistroContacto</servlet-name>
+    <url-pattern>/ServletRegistroContacto</url-pattern>
+  </servlet-mapping>
+  <display-name>AgendaTelefonica</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>ec.edu.ups.vistas.logout</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletRegistro</servlet-name>
+    <servlet-class>ec.edu.ups.vistas.ServletRegistro</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletMain</servlet-name>
+    <servlet-class>ec.edu.ups.vistas.ServletMain</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletLogin</servlet-name>
+    <servlet-class>ec.edu.ups.vistas.ServletLogin</servlet-class>
+  </servlet>
+  <filter>
+    <filter-name>Filtro</filter-name>
+    <filter-class>ec.edu.ups.clases.Filtro</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Filtro</filter-name>
+    <url-pattern>/ServletMain</url-pattern>
+    <url-pattern>/Filtro</url-pattern>
+  </filter-mapping>
+</web-app>
