@@ -51,7 +51,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 		String query = "SELECT * FROM Usuarios where usu_correo = '" + correo + "' and usu_contrasena = '" + password
 				+ "';";
 		ResultSet rs = jdbc.query(query);
-
+		System.out.println(query);
 		boolean band = false;
 		while (rs.next()) {
 			band = true;

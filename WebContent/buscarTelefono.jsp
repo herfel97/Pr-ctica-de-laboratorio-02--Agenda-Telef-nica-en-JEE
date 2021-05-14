@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"">
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 <!--Custom styles-->
 <meta charset="utf-8">
@@ -54,8 +54,8 @@
 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Agenda
 			Telefonica </a>
 		<ul class="navbar-nav px-3">
-			<li class="nav-item text-nowrap"><a class="nav-link"
-				href="logout">Logout</a></li>
+			<li class="nav-item text-nowrap"><a class="nav-link" href="logout">logout</a>
+			</li>
 		</ul>
 	</nav>
 
@@ -87,54 +87,34 @@
 		</div>
 	</div>
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<h2>Buscar Telefonos</h2>
+		<form class="form" action="ServletBuscarContacto" method="get">
+			<div class="input-group form-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text"><i class="fas fa-user"></i>
+						Valor: </span> <input type="text" class="form-control"
+						placeholder="00000" name="valor">
+				</div>
 
-		<h2>
-			Lista de Telefonos de:
-			<%
-			out.println(session.getAttribute("usuario"));
-		%>
-		</h2>
-		<div class="table-responsive">
-			<table class="table table-striped table-sm">
-				<thead>
-					<tr>
-						<th>Codigo</th>
-						<th>Numero</th>
-						<th>Tipo</th>
-						<th>Operador</th>
-						<th>Accion</th>
-					</tr>
-				</thead>
-				<%
-					String valor = (String) session.getAttribute("cedula");
-				JDBCTelefonoDAO t = new JDBCTelefonoDAO();
-				LinkedList<Telefono> list = t.listar(valor);
-				if (list.size() == 0) {
-					out.println("<td>Sin datos</td>");
-				} else {
-				%>
-				<%
-					for (int i = 0; i < list.size(); i++) {
-				%>
-				<tr>
-					<%
-						out.println("<td>" + list.get(i).getCodigo());
-					out.println("<td>" + list.get(i).getNumero() + "</td>");
-					out.println("<td>" + list.get(i).getTipo() + "</td>");
-					out.println("<td>" + list.get(i).getOperadora() + "</td>");
-					%>	
-					<td>
-					<a
-						href="editarContacto.jsp?id=<%=list.get(i).getCodigo()%> "
-						class="btn btn-warning">Editar</a> <a
-						href="eliminarContacto.jsp?id=<%=list.get(i).getCodigo()%>"
-						class="btn btn-danger">Eliminar</a></td>
-					<%
-						}
-					%>
-					<%
-						}
-					%>
-				
-			</table>
-		</div>
+
+				<div class="input-group form-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-user"></i>Tipo:
+						</span> <input type="radio" id="cedula" name="opcion" value="cedula">
+						<label for="cedula">Cedula</label><br> <input type="radio"
+							id="correo" name="opcion" value="correo"> <label
+							for="female">Correo</label>
+
+					</div>
+
+
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Buscar"
+						class="btn float-right login_btn">
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+</html>

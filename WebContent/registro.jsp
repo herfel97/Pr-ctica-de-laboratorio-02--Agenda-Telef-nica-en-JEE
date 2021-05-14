@@ -3,13 +3,9 @@
 <head>
 <title>Login</title>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	crossorigin="anonymous">
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 <!--Custom styles-->
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -60,7 +56,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" class="form-control" placeholder="clave" name="clave">
+							<input required type="password" class="form-control" placeholder="clave" name="clave">
 						</div>
 						<div class="form-group">
 							<input type="submit" value="+"

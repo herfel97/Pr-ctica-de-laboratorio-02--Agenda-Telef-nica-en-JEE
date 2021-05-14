@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"">
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
 <!--Custom styles-->
 <meta charset="utf-8">
@@ -54,8 +54,8 @@
 		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Agenda
 			Telefonica </a>
 		<ul class="navbar-nav px-3">
-			<li class="nav-item text-nowrap"><a class="nav-link"
-				href="logout">Logout</a></li>
+			<li class="nav-item text-nowrap"><a class="nav-link" href="#">Logout</a>
+			</li>
 		</ul>
 	</nav>
 
@@ -88,12 +88,7 @@
 	</div>
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-		<h2>
-			Lista de Telefonos de:
-			<%
-			out.println(session.getAttribute("usuario"));
-		%>
-		</h2>
+		<h2>Lista de Telefonos</h2>
 		<div class="table-responsive">
 			<table class="table table-striped table-sm">
 				<thead>
@@ -102,35 +97,20 @@
 						<th>Numero</th>
 						<th>Tipo</th>
 						<th>Operador</th>
-						<th>Accion</th>
 					</tr>
 				</thead>
+
 				<%
-					String valor = (String) session.getAttribute("cedula");
-				JDBCTelefonoDAO t = new JDBCTelefonoDAO();
-				LinkedList<Telefono> list = t.listar(valor);
-				if (list.size() == 0) {
-					out.println("<td>Sin datos</td>");
-				} else {
-				%>
-				<%
-					for (int i = 0; i < list.size(); i++) {
+					LinkedList<Telefono> res = (LinkedList<Telefono>) session.getAttribute("listaTel");
+
+				for (int i = 0; i < res.size(); i++) {
 				%>
 				<tr>
 					<%
-						out.println("<td>" + list.get(i).getCodigo());
-					out.println("<td>" + list.get(i).getNumero() + "</td>");
-					out.println("<td>" + list.get(i).getTipo() + "</td>");
-					out.println("<td>" + list.get(i).getOperadora() + "</td>");
-					%>	
-					<td>
-					<a
-						href="editarContacto.jsp?id=<%=list.get(i).getCodigo()%> "
-						class="btn btn-warning">Editar</a> <a
-						href="eliminarContacto.jsp?id=<%=list.get(i).getCodigo()%>"
-						class="btn btn-danger">Eliminar</a></td>
-					<%
-						}
+						out.println("<td>" + res.get(i).getCodigo());
+					out.println("<td>" + res.get(i).getNumero() + "</td>");
+					out.println("<td>" + res.get(i).getTipo() + "</td>");
+					out.println("<td>" + res.get(i).getOperadora() + "</td>");
 					%>
 					<%
 						}
@@ -138,3 +118,9 @@
 				
 			</table>
 		</div>
+
+		<a class="btn btn-warning" href="buscarTelefono.jsp">Nueva
+			Busqueda</a>
+	</main>
+</body>
+</html>
